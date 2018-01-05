@@ -60,6 +60,7 @@ Install ``additionals`` plugin for `Redmine`_.
   $ cd $REDMINE_ROOT
   $ git clone git://github.com/alphanodes/additionals.git plugins/additionals
   $ bundle install --without development test
+  $ bundle exec rake redmine:plugins:migrate RAILS_ENV=production
   $
   $ # if you want to use smiley/emoji legacy support, you have to put emoji icons to
   $ # $REDMINE_ROOT/public/images/emoji
@@ -73,6 +74,19 @@ Restart your application server (apache with passenger, nginx with passenger, un
 
 More information about installation of Redmine plugins, you can find in the official `Redmine plugin documentation <https://www.redmine.org/projects/redmine/wiki/Plugins>`_.
 
+
+Uninstall
+---------
+
+Uninstall ``additionals`` plugin for `Redmine`_.
+
+.. code-block:: bash
+
+  $ cd $REDMINE_ROOT
+  $ bundle exec rake redmine:plugins:migrate NAME=additionals VERSION=0 RAILS_ENV=production
+  $ rm -rf plugins/additionals
+
+
 Features
 --------
 
@@ -82,7 +96,26 @@ Features
 * welcome text for login page
 * global sidebar content support
 * set info message above new ticket (e.g. for guidelines)
-* Wiki macros for: date, Gihub gist, issues, members, projects slideshare, twitter, reddit, tradingview, cryptocompare, user, youtube and vimeo
+* wiki macros for:
+
+  * cryptocompare
+  * date,
+  * gihub gist
+  * gmap
+  * group_users
+  * iframe
+  * issues
+  * members
+  * meteoblue
+  * projects
+  * reddit
+  * slideshare
+  * tradingview
+  * twitter
+  * user
+  * vimeo
+  * youtube
+
 * option to remove "my page" from top menu
 * customize "Help" url in top menu
 * customize top menu items
@@ -90,8 +123,11 @@ Features
 * open external urls in new window
 * smiley/emoji legacy support
 * anonymize referrer for external urls
-* Hide role in project memberbox
-* Configurable issue rules
+* hide role in project memberbox
+* change issue author
+* spam protection on registration form
+* add involved issue users as watcher automatically
+* configurable issue rules
 
   * closing issue with open sub issues
   * change assigned_to automatically, if issue status changes
@@ -111,13 +147,13 @@ Don't worry, if you only need a subset of the provided libraries. If you do not 
 
 It provides :
 
-* `angular-gantt 1.2.13 <https://github.com/angular-gantt/angular-gantt>`_
+* `angular-gantt 2.0.0rc1 <https://github.com/angular-gantt/angular-gantt>`_
 * `bootstrap 3.3.7 <https://getbootstrap.com>`_
 * `d3 3.5.16 <https://d3js.org/>`_
 * `d3plus 1.9.8 <http://d3plus.org/>`_
 * `jQuery TagIt 2.0 <http://aehlke.github.io/tag-it/>`_
-* `FontAwesome 4.7.0 <http://fontawesome.io/>`_
-* `nvd3 1.8.5 <https://github.com/novus/nvd3>`_
+* `FontAwesome 5.0.2 <http://fontawesome.io/>`_
+* `nvd3 1.8.6 <https://github.com/novus/nvd3>`_
 * `ZeroClipboard 2.2.0 <https://github.com/zeroclipboard/zeroclipboard>`_
 
 And a set of various Rails helper methods (see below).
@@ -161,5 +197,6 @@ I am glad about your feedback on the plugin, `pull requests <https://github.com/
 
     manual
     macros
+    tasks
     new_feature
     changelog

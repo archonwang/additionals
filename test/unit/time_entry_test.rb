@@ -1,6 +1,6 @@
 require File.expand_path('../../test_helper', __FILE__)
 
-class TimeEntryTest < ActiveSupport::TestCase
+class TimeEntryTest < Redmine::HelperTest
   fixtures :issues, :projects, :users, :time_entries,
            :members, :roles, :member_roles,
            :trackers, :issue_statuses,
@@ -24,15 +24,21 @@ class TimeEntryTest < ActiveSupport::TestCase
   def test_create_time_entry_with_open_issue
     entry = TimeEntry.new(project: Project.find(1), user: User.find(1), activity: TimeEntryActivity.first, hours: 100)
     entry.spent_on = '2010-01-01'
-    entry.issue = Issue.find(7)
+    entry.issue = Issue.create(project_id: 1, tracker_id: 1, author_id: 1, status_id: 1, subject: 'open issue')
+    assert !entry.issue.closed?
     assert entry.valid?
     assert entry.save
   end
 
   def test_create_time_entry_with_closed_issue_without_permission
+    issue = Issue.generate(project_id: 1, subject: 'closed issue')
+    issue.status = IssueStatus.where(is_closed: true).first
+    issue.save
+
     entry = TimeEntry.new(project: Project.find(1), user: User.find(1), activity: TimeEntryActivity.first, hours: 100)
     entry.spent_on = '2010-01-01'
-    entry.issue = Issue.find(8)
+    entry.issue = issue
+    assert entry.issue.closed?
     assert !entry.valid?
     assert !entry.save
   end
@@ -40,13 +46,14 @@ class TimeEntryTest < ActiveSupport::TestCase
   def test_create_time_entry_with_closed_issue_with_permission
     User.current = User.find(3)
     role = Role.create!(name: 'Additionals Tester', permissions: [:log_time_on_closed_issues])
-    Member.delete_all(user_id: User.current)
+    Member.where(user_id: User.current).delete_all
     project = Project.find(1)
     Member.create!(principal: User.current, project_id: project.id, role_ids: [role.id])
 
     entry = TimeEntry.new(project: Project.find(1), user: User.current, activity: TimeEntryActivity.first, hours: 100)
     entry.spent_on = '2010-01-01'
-    entry.issue = Issue.find(8)
+    entry.issue = Issue.create(project_id: 1, tracker_id: 1, author_id: 1, status_id: 5, subject: 'closed issue')
+    assert entry.issue.closed?
     assert entry.valid?
     assert entry.save
   end

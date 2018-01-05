@@ -1,13 +1,73 @@
 Changelog
 =========
 
+2.0.7
++++++
+
+- FontAwsome 5.0.2 support
+- Switching to SLIM template engine
+
+2.0.6
++++++
+
+- add rake tasks: drop_settings, setting_get and setting_set
+- Updated nvd3 library to 1.8.6
+- Updated angularjs libraries to v2.0.0-rc.1
+- Wiki iframe macro integration has been added
+
+2.0.5
++++++
+
+- Redmine 3.4 bug fixes
+- Helper function fa_icon renamed to font_awesome_icon because of conflicts with redmine_bootstrap_kit
+- Cleanups deface overwrites
+- add hook for user show
+- Traditional Chinese support has been added (thanks to @archonwang)
+- Wiki macro for weather with meteoblue has been added
+- Wiki macro for google maps has been added
+- Wiki macro for issues now supports display a comment and detect issue id and comment id from URL
+
+2.0.4
++++++
+
+- Add group_users macro
+- Fix bug with REST-API and assigned_id for issues
+- Use user name setting for sort order in macros
+- Add invisible_captcha spam protection on registration form
+
+2.0.3
++++++
+
+- Allow remove watchers without re-adding it (only if author or assigned_user changed)
+- Fix sort order of users for change author
+- Add uninstall documentation
+- Add option to disable autowatch issue at user level
+- Fixed bug with recurring_tasks plugin and autowatch issues
+- Add more unit tests
+
+2.0.2
++++++
+
+- Add option to add involved issue users automatically
+- Add change issue author feature
+- Fixed bug with Redmine 3.4.x and default assignee settings
+- Refactoring patch include and wiki macros
+
+2.0.1
++++++
+
+- Simplified Chinese support has been added (thanks to @archonwang)
+- Helper function fa_icon has been added
+- Help menu item and MyPage menu item does not require application server restart anymore
+- Redmine 3.4.x compatibility
+
 2.0.0
 +++++
 
 - Redmine Tweaks has been renamed to additionals, because to resolve loading order problem of Redmine plugins
 - Merge common_libraries plugin into additionals plugin
 - Fontawesome support
-- Redmine 3.1.x required
+- Redmine 3.0.x required
 
 1.0.3
 +++++

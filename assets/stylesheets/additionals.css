@@ -1,13 +1,11 @@
-/* ICONS */
-#admin-menu a.additionals::before {
-  font-size: 1.3em;
-  padding-right: 4px;
-}
+/* stylelint-disable font-family-no-missing-generic-family-keyword */
 
 #admin-menu a.additionals::before {
-  font-family: FontAwesome;
-  font-weight: normal;
-  content: "\f085"; /* fa-cogs */
+  font-family: Font Awesome\ 5 Free;
+  font-size: 1.1em;
+  font-weight: 900;
+  content: "\f085"; /* fas fa-cogs */
+  padding-right: 4px;
 }
 
 #admin-menu a.additionals {
@@ -150,3 +148,78 @@
 .smiley-failure {
   background-image: url(../images/smileys/failure-frame.png);
 }
+
+div.clear-both { clear: both; }
+
+/* TAGs */
+
+ul.tags {
+  list-style: none;
+  padding: 0;
+}
+
+span.additionals-tag-label-color {
+  display: inline-block;
+  margin-bottom: 5px !important;
+}
+
+td.tags span.additionals-tag-label-color {
+  display: inline-block;
+  margin: 2px !important;
+}
+
+.additionals-tag-label-color {
+  padding: 2px 4px;
+  color: #fff;
+  text-shadow: 0 -1px 1px rgba(0, 0, 0, 0.5);
+  font-size: 10px !important;
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  border-radius: 2px;
+}
+
+.additionals-tag-label-color a::before {
+  font-family: Font Awesome\ 5 Free;
+  font-size: 0.9em;
+  font-weight: 900;
+  content: "\f02b"; /* fas fa-tag */
+  padding-right: 3px;
+  color: #fff;
+}
+
+ul.tags li { margin: 0.25em 0; }
+
+div.tags .tag-pass-1 { font-size: 0.8em; }
+div.tags .tag-pass-2 { font-size: 0.9em; }
+div.tags .tag-pass-3 { font-size: 1em; }
+div.tags .tag-pass-4 { font-size: 1.1em; }
+div.tags .tag-pass-5 { font-size: 1.2em; }
+div.tags .tag-pass-6 { font-size: 1.3em; }
+div.tags .tag-pass-7 { font-size: 1.4em; }
+div.tags .tag-pass-8 { font-size: 1.5em; }
+
+.tag-count { font-size: 0.75em; }
+.additionals-tag-label-color a { color: white; }
+
+.tagit.ui-widget {
+  font-size: 1em;
+  margin: 0;
+}
+
+ul.tagit li.tagit-choice {
+  color: #505050;
+  font-weight: normal;
+}
+
+ul.tagit li.tagit-choice:hover,
+ul.tagit li.tagit-choice.remove {
+  border-color: #6d95e0;
+}
+
+ul.tagit input[type="text"] {
+  background: transparent;
+}
+
+img.additionals-avatar { margin-right: 0.25em; }
+
+/* Live search */
+.additionals-live-search input.live-search-field { font-size: 16px; }

@@ -1,3 +1,16 @@
+unless ENV['SKIP_COVERAGE']
+  require 'simplecov'
+  require 'simplecov-rcov'
+
+  SimpleCov.formatters = SimpleCov::Formatter::MultiFormatter[SimpleCov::Formatter::HTMLFormatter,
+                                                              SimpleCov::Formatter::RcovFormatter]
+
+  SimpleCov.start :rails do
+    add_filter 'init.rb'
+    root File.expand_path(File.dirname(__FILE__) + '/..')
+  end
+end
+
 require File.expand_path(File.dirname(__FILE__) + '/../../../test/test_helper')
 
 # Additionals helper class for tests
@@ -25,11 +38,7 @@ module Additionals
     end
 
     def self.create_fixtures(fixtures_directory, table_names, _class_names = {})
-      if ActiveRecord::VERSION::MAJOR >= 4
-        ActiveRecord::FixtureSet.create_fixtures(fixtures_directory, table_names, _class_names = {})
-      else
-        ActiveRecord::Fixtures.create_fixtures(fixtures_directory, table_names, _class_names = {})
-      end
+      ActiveRecord::FixtureSet.create_fixtures(fixtures_directory, table_names, _class_names = {})
     end
 
     def self.prepare

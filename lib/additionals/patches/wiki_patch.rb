@@ -4,7 +4,7 @@ module Additionals
   module Patches
     # Patch wiki to include sidebar
     module WikiPatch
-      def self.included(base) # :nodoc:
+      def self.included(base)
         base.send(:include, InstanceMethodsForAdditionalsWiki)
         base.class_eval do
           alias_method_chain :sidebar, :additionals
@@ -19,17 +19,11 @@ module Additionals
         if @sidebar && @sidebar.content
           sidebar_without_additionals
         else
-          wiki_sidebar = '' + Setting.plugin_additionals[:global_wiki_sidebar].to_s
+          wiki_sidebar = '' + Additionals.settings[:global_wiki_sidebar].to_s
           @sidebar ||= find_page('Wiki', with_redirect: false)
-          if wiki_sidebar != '' && @sidebar.try(:content)
-            @sidebar.content.text = wiki_sidebar
-          end
+          @sidebar.content.text = wiki_sidebar if wiki_sidebar != '' && @sidebar.try(:content)
         end
       end
     end
   end
-end
-
-unless Wiki.included_modules.include? Additionals::Patches::WikiPatch
-  Wiki.send(:include, Additionals::Patches::WikiPatch)
 end

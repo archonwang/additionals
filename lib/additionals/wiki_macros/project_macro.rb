@@ -2,7 +2,7 @@
 module Additionals
   module WikiMacros
     Redmine::WikiFormatting::Macros.register do
-      desc <<-EOHELP
+      desc <<-DESCRIPTION
   Display projects.
 
   Syntax:
@@ -20,10 +20,10 @@ module Additionals
     {{projects(with_create_issue=true)}}
     ...List all project with link to create new issue, which I am member of
 
-  EOHELP
+  DESCRIPTION
 
       macro :projects do |_obj, args|
-        args, options = extract_macro_options(args, :title, :with_create_issue)
+        _args, options = extract_macro_options(args, :title, :with_create_issue)
         @projects = Additionals.load_projects
         return '' if @projects.nil?
 
@@ -36,11 +36,7 @@ module Additionals
   end
 
   def self.load_projects
-    all_projects = if ActiveRecord::VERSION::MAJOR < 4
-                     Project.active.visible(User.current).find(:all, order: 'projects.name')
-                   else
-                     Project.active.visible.sorted
-                   end
+    all_projects = Project.active.visible.sorted
     my_projects = []
     all_projects.each do |p|
       my_projects << p if User.current.member_of?(p)

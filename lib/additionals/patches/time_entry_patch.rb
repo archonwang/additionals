@@ -1,5 +1,3 @@
-require_dependency 'time_entry'
-
 module Additionals
   module Patches
     module TimeEntryPatch
@@ -26,8 +24,4 @@ module Additionals
       end
     end
   end
-end
-
-unless TimeEntry.included_modules.include? Additionals::Patches::TimeEntryPatch
-  TimeEntry.send(:include, Additionals::Patches::TimeEntryPatch)
 end
