@@ -45,11 +45,11 @@ zh:
   invisible_captcha_info_html: In case this option is activated an <a href="https://github.com/markets/invisible_captcha" target="_blank">invisible_captcha</a> SPAM protection is activated for the registration page of new users. This function is only available, if you enabled self-registration, too.
   label_account_login: "用于登陆页的文本"
   label_add_go_to_top: '添加 "回到页首" 链接'
-  label_add_tags: Add tags
+  label_add_tags: 添加标签
   label_additionals_doc: Additionals 插件文档
   label_additionals: Additionals
-  label_app_menu: App menu
-  label_change_is_private: Change private/non-private
+  label_app_menu: 应用菜单
+  label_change_is_private: 修改为私有/公共
   label_content_plural: 内容
   label_custom_help_url: "自定义帮助 URL"
   label_custom_menu_items: 自定义菜单项
@@ -66,18 +66,18 @@ zh:
   label_global_wiki_header: "项目范围内的页首设置"
   label_global_wiki_sidebar: "全局 WIKI 侧边栏设置"
   label_go_to_top: "回到页首"
-  label_google_maps_embed_api: Google Maps Embed API Key
+  label_google_maps_embed_api: 谷歌地图嵌入 API Key
   label_hour: 小时
   label_icon_color: 图标颜色
-  label_invisible_captcha: SPAM protection for registration
-  label_issue_autowatch_involved: Add involved users as watcher automatically
+  label_invisible_captcha: 用于注册的 SPAM （垃圾邮件）保护
+  label_issue_autowatch_involved: 自动添加用户作为关注着
   label_last_year: 去年
   label_legacy_smiley_support: 表情符号支持
   label_macro_na: N/A
   label_menu_entry: "菜单项"
   label_monthly: 每月
   label_new_ticket_message: "用于新建问题时的提示信息"
-  label_open_in_new_windows: Open in new windows
+  label_open_in_new_windows: 在新窗口中打开
   label_optional: "可选项"
   label_overview_bottom: "概述页底部"
   label_overview_page: "概述页"
@@ -104,11 +104,11 @@ zh:
   label_settings_menu: "菜单"
   label_show_all: 显示所有
   label_system_info: 系统信息
-  label_tags_without_color: Show tags without color
+  label_tags_without_color: 显示不含颜色的标签
   label_tomorrow: 明天
   label_top_macros_help_html: "此处列出了来自 Redmine 及 Redmine 插件中提供的所有可用的宏命令。"
   label_top_menu_help_html: "此处可以自定义顶部菜单项。在移除或修改菜单项后，请务必 <strong>重启 Redmine 服务</strong> 确保修改内容生效。"
-  label_top_menu: Top menu
+  label_top_menu: 顶部菜单
   label_twitter_account: Twitter 账号
   label_twitter_hashtag: Twitter 哈希标签
   label_uptime: Uptime
@@ -125,7 +125,7 @@ zh:
   overview_bottom_info: "此处可以添加显示在概述页底部的文本信息，如您可以链接到 WIKI 页。"
   overview_right_info: "此处可以添加显示在概述页右侧的文本信息，如您可以链接到 WIKI 页。"
   overview_top_info: "此处可以添加显示在概述页顶部的文本信息，如您可以链接到 WIKI 页。"
-  permission_change_new_issue_author: Set author of new issues
+  permission_change_new_issue_author: 新建问题时设置默认作者
   permission_edit_closed_issues: "修改已关闭的问题"
   permission_edit_issue_author: Edit author
   permission_hide_in_memberbox: "在成员信息区域内隐藏"
